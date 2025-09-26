@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "*.html": "django-html"
+    },
+    "[django-html]": {
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": true,
+            "strings": true
+        }
+    }
+}
