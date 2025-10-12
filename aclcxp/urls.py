@@ -20,12 +20,11 @@ from django.urls import path, include
 from leaderboard.views import landing_page
 
 
-
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", landing_page),
+    path('products/', admin.site.urls),
+    path('', include('leaderboard.urls')),
 ]
 
 # urlpatterns = [
