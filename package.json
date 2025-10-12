@@ -5,5 +5,8 @@
   },
   "scripts": {
     "watch:css": "npx @tailwindcss/cli -i ./static/src/style.css -o ./static/dist/style.css --watch"
+  },
+  "devDependencies": {
+    "flowbite": "^3.1.2"
   }
 }

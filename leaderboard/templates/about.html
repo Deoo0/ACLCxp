@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="relative isolate overflow-hidden bg-gray-800 px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+    <div class="absolute inset-0 -z-10 overflow-hidden">
+        <svg aria-hidden="true" class="absolute top-0 left-[max(50%,25rem)] h-256 w-512 -translate-x-1/2 mask-[radial-gradient(64rem_64rem_at_top,white,transparent)] stroke-gray-800">
+            <defs>
+                <pattern id="e813992c-7d03-4cc4-a2bd-151760b470a0" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+                    <path d="M100 200V.5M.5 .5H200" fill="none" />
+                </pattern>
+            </defs>
+            <svg x="50%" y="-1" class="overflow-visible fill-gray-600/50">
+                <path d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z" stroke-width="0" />
+            </svg>
+            <rect width="100%" height="100%" fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)" stroke-width="0" />
+        </svg>
+    </div>
+    
+    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+        <!-- First Section -->
+        <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+            <div class="lg:pr-4">
+                <div class="lg:max-w-lg">
+                    <p class="text-base/7 font-semibold text-indigo-400">Developer: Lawrence Deo E. Bersales</p>
+                    <h1 class="mt-2 text-4xl font-bold tracking-tight text-pretty text-white sm:text-5xl">ACLC <span style="color: red;">Xp</span></h1><br>
+                     <h2 class="text-2xl font-semibold text-white text-pretty mb-4">About ACLC Intramurals 🏆</h2>
+                    <p class="mt-6 text-xl/8 text-gray-300">
+                        Welcome to our school's live intramurals leaderboard! Track your house's journey to victory 
+        in sports, academics, arts, and various competitions throughout the school year.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Section -->
+        <div class="flex items-center justify-center p-4 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-h-[500px] lg:px-8">
+            <div class="relative w-full max-w-md">
+                <img src="{%static 'imgs/icons/housecup.png'%}" 
+                     alt="House Cup Trophy" 
+                     class="w-full h-auto object-contain rounded-xl bg-gray-800/50 p-4 shadow-2xl ring-1 ring-white/10" />
+                <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-900/30 to-transparent rounded-xl"></div>
+            </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+            <div class="lg:pr-4">
+                <div class="max-w-xl text-base/7 text-gray-400 lg:max-w-lg">
+                    <p>
+                        Our dynamic house competition platform transforms school spirit into visible achievement! This real-time scoring system tracks every point earned as our five houses—Roxxo (Blazing Dragons), Vierrdy (Serpents), Azul (Wolves), Giallio (Griffin), and Cahel (Phoenix)—battle for glory throughout the academic year.
+
+                        <br><br>
+How It Works: <br>
+
+<ul class="mt-8 space-y-8 text-gray-400">
+    <li class="flex gap-x-3">
+        <img src="{%static 'imgs/icons/trophy2.png'%}" alt="icon" class="mt-1 size-5 flex-none text-indigo-400">
+        <span><strong class="font-semibold text-white">Live Competition: </strong>Points update instantly after each event </span>
+    </li>
+    <li class="flex gap-x-3">
+        <img src="{%static 'imgs/icons/people.png'%}" alt="icon" class="mt-1 size-5 flex-none text-indigo-400">
+        <span><strong class="font-semibold text-white">Diverse Events: </strong>Sports tournaments, academic challenges, artistic performances, and special activities </span>
+    </li>
+    <li class="flex gap-x-3">
+        <img src="{%static 'imgs/icons/achievement.png'%}" alt="icon" class="mt-1 size-5 flex-none text-indigo-400">
+        <span><strong class="font-semibold text-white">Fair Scoring: </strong>Structured points system rewarding both excellence and participation </span>
+    </li>
+    <li class="flex gap-x-3">
+        <img src="{%static 'imgs/icons/chat.png'%}" alt="icon" class="mt-1 size-5 flex-none text-indigo-400">
+        <span><strong class="font-semibold text-white">Mobile Access: </strong>Check rankings anytime, anywhere on any device </span>
+    </li>
+</ul>
+    
+<br><br>
+From basketball courts to debate stages, science fairs to art exhibitions, every student's contribution matters. Houses earn points based on placements (1st, 2nd, 3rd, 4th, 5th) with bonus recognition for participation and special achievements. <br><br>
+
+Beyond the Scoreboard:
+This isn't just about winning—it's about building community, developing skills, and creating memories. Whether you're competing, cheering, or organizing, you're part of our school's vibrant competitive spirit.<br><br>
+
+Join the excitement, support your house, and watch as we write this year's chapter of ACLC intramural history together!
+                    </p>
+
+                    
+                    <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">Have Any Feedback?</h2>
+                    <p class="mt-6">Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam consequat in. Convallis arcu ipsum urna nibh. Pharetra, euismod vitae interdum mauris enim, consequat vulputate nibh. Maecenas pellentesque id sed tellus mauris, ultrices mauris. Tincidunt enim cursus ridiculus mi. Pellentesque nam sed nullam sed diam turpis ipsum eu a sed convallis diam.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
