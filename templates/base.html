@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'dist/style.css' %}">
     <title>{% block title %}My amazing site{% endblock %}</title>
 </head>
 <body>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <div id="content">
         {% block nav %}
         <div class="bg-black overflow-hidden">
@@ -33,10 +35,11 @@
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="#" class="text-sm/6 font-semibold text-white">News</a>
-                <a href="#" class="text-sm/6 font-semibold text-white">House</a>
-                <a href="#" class="text-sm/6 font-semibold text-white">Activities</a>
-                <a href="#" class="text-sm/6 font-semibold text-white">Socials</a>
+                <a href="#" class="text-sm/6 font-semibold py-1 text-white">News</a>
+                <a href="#" class="text-sm/6 font-semibold py-1 text-white">House</a>
+                <a href="{%url 'home'%}" class="text-sm/6 font-semibold text-white bg-red-600 hover:bg-red-500 px-3 py-1 rounded-lg transition-colors duration-200">LEADERBOARD</a>
+                <a href="#" class="text-sm/6 font-semibold py-1 text-white">Activities</a>
+                <a href="#" class="text-sm/6 font-semibold py-1 text-white">Socials</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="{%url 'login'%}" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
@@ -50,7 +53,7 @@
                         <div class="flex items-center justify-between">
                         <a href="#" class="-m-1.5 p-1.5">
                             <span class="sr-only">Your Company</span>
-                            <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="" class="h-8 w-auto" />
+                            <img src="{%static 'imgs/icons/housecup.png'%}" alt="" class="h-8 w-auto" />
                         </a>
                         <button type="button" command="close" commandfor="mobile-menu" class="-m-2.5 rounded-md p-2.5 text-gray-200">
                             <span class="sr-only">Close menu</span>
@@ -62,13 +65,14 @@
                         <div class="mt-6 flow-root">
                         <div class="-my-6 divide-y divide-white/10">
                             <div class="space-y-2 py-6">
+                            <a href="{%url 'home'%}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Leaderboard</a>
                             <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">News</a>
                             <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">House</a>
                             <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Activities</a>
                             <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Socials</a>
                             </div>
                             <div class="py-6">
-                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5">Log in</a>
+                            <a href="{%url 'login'%}" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5">Log in</a>
                             </div>
                         </div>
                         </div>
@@ -80,6 +84,9 @@
         </div>
         </nav>
         {% endblock %}
+
+
+
         {% block content %}
         {% endblock %}
     </div>
