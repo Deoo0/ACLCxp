@@ -4,91 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+    <!-- Load Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Load Flowbite CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.3.0/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Load custom styles -->
+    <link rel="stylesheet" href="{% static 'src/main.css' %}">
     <link rel="stylesheet" href="{% static 'dist/style.css' %}">
     <title>{% block title %}My amazing site{% endblock %}</title>
 </head>
-<body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<body class="bg-gray-100">
     <div id="content">
         {% block nav %}
         <div class="bg-black overflow-hidden">
-        <header class="static inset-x-0 top-0 z-50">
-        <nav aria-label="Global" class="flex items-center justify-between p-3 lg:px-8">
-            <div class="flex lg:flex-1">
-                <a href="{%url 'home'%}" class="-m-1.5 p-1.5">
-                <span class="sr-only">Your Company</span>
-                <div class="flex flex-row gap-2">
-                    <img src="{%static 'imgs/icons/logo.png'%}" alt="" class="h-12 w-auto" />
-                    <img src="{%static 'imgs/icons/housecup.png'%}" alt="" class="h-12 w-auto" />
-                </div>
-                </a>
-            </div>
-            <div class="flex lg:hidden">
-                <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200">
-                <span class="sr-only">Open main menu</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
-                    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                </button>
-            </div>
-            <div class="hidden lg:flex lg:gap-x-12">
-                <a href="#" class="text-sm/6 font-semibold py-1 text-white">News</a>
-                <a href="#" class="text-sm/6 font-semibold py-1 text-white">House</a>
-                <a href="{%url 'home'%}" class="text-sm/6 font-semibold text-white bg-red-600 hover:bg-red-500 px-3 py-1 rounded-lg transition-colors duration-200">LEADERBOARD</a>
-                <a href="#" class="text-sm/6 font-semibold py-1 text-white">Activities</a>
-                <a href="#" class="text-sm/6 font-semibold py-1 text-white">Socials</a>
-            </div>
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="{%url 'login'%}" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
-            </div>
-            </header>
-            <header class="absolute inset-x-0 top-0 z-50">
-                <el-dialog>
-                <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
-                    <div tabindex="0" class="fixed inset-0 focus:outline-none">
-                    <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
-                        <div class="flex items-center justify-between">
-                        <a href="#" class="-m-1.5 p-1.5">
+            <header class="static inset-x-0 top-0 z-50">
+                <nav aria-label="Global" class="flex items-center justify-between p-3 lg:px-8">
+                    <div class="flex lg:flex-1">
+                        <a href="{% url 'home' %}" class="-m-1.5 p-1.5">
                             <span class="sr-only">Your Company</span>
-                            <img src="{%static 'imgs/icons/housecup.png'%}" alt="" class="h-8 w-auto" />
+                            <div class="flex flex-row gap-2">
+                                <img src="{% static 'imgs/icons/logo.png' %}" alt="" class="h-12 w-auto" />
+                                <img src="{% static 'imgs/icons/housecup.png' %}" alt="" class="h-12 w-auto" />
+                            </div>
                         </a>
-                        <button type="button" command="close" commandfor="mobile-menu" class="-m-2.5 rounded-md p-2.5 text-gray-200">
-                            <span class="sr-only">Close menu</span>
+                    </div>
+                    <div class="flex lg:hidden">
+                        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200" data-drawer-target="mobile-menu" data-drawer-show="mobile-menu">
+                            <span class="sr-only">Open main menu</span>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
-                            <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
-                        </div>
-                        <div class="mt-6 flow-root">
-                        <div class="-my-6 divide-y divide-white/10">
-                            <div class="space-y-2 py-6">
-                            <a href="{%url 'home'%}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Leaderboard</a>
-                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">News</a>
-                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">House</a>
-                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Activities</a>
-                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Socials</a>
-                            </div>
-                            <div class="py-6">
-                            <a href="{%url 'login'%}" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5">Log in</a>
-                            </div>
-                        </div>
-                        </div>
-                    </el-dialog-panel>
                     </div>
-                </dialog>
-                </el-dialog>
+                    <div class="hidden lg:flex lg:gap-x-12">
+                        <a href="#" class="text-sm/6 font-semibold py-1 text-white">News</a>
+                        <a href="#" class="text-sm/6 font-semibold py-1 text-white">House</a>
+                        <a href="{% url 'home' %}" class="text-sm/6 font-semibold text-white bg-red-700 hover:bg-red-500 px-3 py-1 rounded-lg transition-colors duration-200">LEADERBOARD</a>
+                        <a href="#" class="text-sm/6 font-semibold py-1 text-white">Activities</a>
+                        <a href="#" class="text-sm/6 font-semibold py-1 text-white">Socials</a>
+                    </div>
+                    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                        <a href="{% url 'login' %}" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </nav>
+
+                <!-- Mobile menu, show/hide based on menu open state. -->
+                <div id="mobile-menu" tabindex="-1" class="fixed top-0 right-0 z-50 h-screen p-6 overflow-y-auto transition-transform translate-x-full bg-gray-900 w-80 shadow-2xl" aria-labelledby="drawer-right-label" style="display: none;">
+                
+                <!-- Inline script to immediately hide the menu -->
+                <script>
+                    document.getElementById('mobile-menu').style.display = 'none';
+                </script>
+                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-700">
+                        <a href="{% url 'home' %}" class="flex items-center space-x-2">
+                            <img src="{% static 'imgs/icons/housecup.png' %}" alt="House Cup" class="h-8 w-auto" />
+                        </a>
+                        <button type="button" data-drawer-hide="mobile-menu" aria-controls="mobile-menu" class="text-gray-400 bg-transparent hover:bg-gray-700 hover:text-white rounded-lg text-sm w-8 h-8 inline-flex items-center justify-center">
+                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                            </svg>
+                            <span class="sr-only">Close menu</span>
+                        </button>
+                    </div>
+                    <div class="space-y-2">
+                        <a href="{% url 'home' %}" class="block px-4 py-3 text-base font-medium text-white bg-red-700 rounded-lg hover:bg-red-600 transition-colors duration-200">Leaderboard</a>
+                        <a href="#" class="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200">News</a>
+                        <a href="#" class="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200">House</a>
+                        <a href="#" class="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200">Activities</a>
+                        <a href="#" class="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors duration-200">Socials</a>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-gray-700">
+                        <a href="{% url 'login' %}" class="block w-full px-4 py-3 text-base font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-600 transition-colors duration-200">
+                            Log in
+                        </a>
+                    </div>
+                </div>
             </header>
         </div>
-        </nav>
         {% endblock %}
-
-
 
         {% block content %}
         {% endblock %}
     </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'dist/flowbite.min.js' %}"></script>
+    
+    <script>
+        // Initialize Flowbite drawer after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const openButton = document.querySelector('[data-drawer-target="mobile-menu"]');
+            const closeButton = document.querySelector('[data-drawer-hide="mobile-menu"]');
+            
+            // Ensure menu is hidden initially
+            if (mobileMenu) {
+                mobileMenu.style.display = 'none';
+                mobileMenu.classList.add('translate-x-full');
+            }
+            
+            // Show menu when open button is clicked
+            if (openButton) {
+                openButton.addEventListener('click', function() {
+                    mobileMenu.style.display = 'block';
+                    setTimeout(() => {
+                        mobileMenu.classList.remove('translate-x-full');
+                    }, 10);
+                });
+            }
+            
+            // Hide menu when close button is clicked
+            if (closeButton) {
+                closeButton.addEventListener('click', function() {
+                    mobileMenu.classList.add('translate-x-full');
+                    setTimeout(() => {
+                        mobileMenu.style.display = 'none';
+                    }, 300);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
